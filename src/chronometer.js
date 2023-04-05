@@ -34,14 +34,26 @@ class Chronometer {
   }
 
   stop() {
-    // ... your code goes here
+    clearInterval(this.intervalId);
+    this.intervalId = null;
+  
   }
 
   reset() {
-    // ... your code goes here
+    this.currentTime = 0;
   }
 
   split() {
-    // ... your code goes here
+    let minutesNumber = this.getMinutes();
+    let minutesString = minutesNumber.toString();
+    let seconds = this.getSeconds();
+    let secondsFormat = this.computeTwoDigitNumber(seconds);
+
+    // let minutes = this.getMinutes().toString();
+    // let seconds = this.computeTwoDigitNumber(this.getSeconds());
+    // return `${minutes}:${seconds}`;
+
+
+    return `${minutesString}:${secondsFormat}`
   }
 }
